@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerce Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1>Storefront</h1>
+    <div class="controls">
+      <div class="filter-group" role="group" aria-label="Category filters">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="electronics">Electronics</button>
+        <button class="filter-btn" data-category="jewelery">Jewelry</button>
+        <button class="filter-btn" data-category="clothing">Clothing</button>
+      </div>
+      <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products" />
+      <button id="openCartBtn" class="primary-btn">
+        Cart <span id="cartBadge" class="badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <p id="statusMessage" class="status-message">Loading products...</p>
+    <section id="productGrid" class="product-grid" aria-live="polite"></section>
+  </main>
+
+  <div id="drawerBackdrop" class="backdrop hidden"></div>
+
+  <aside id="cartDrawer" class="cart-drawer" aria-label="Shopping cart">
+    <div class="drawer-header">
+      <h2>Your Cart</h2>
+      <button id="closeCartBtn" class="icon-btn" aria-label="Close cart">&times;</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="drawer-footer">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <strong id="subtotalVal">$0.00</strong>
+      </div>
+      <div class="summary-row">
+        <span>Tax (8%)</span>
+        <span id="taxVal">$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>Shipping</span>
+        <span id="shippingVal">$0.00</span>
+      </div>
+      <div class="summary-row total-row">
+        <span>Total</span>
+        <strong id="totalVal">$0.00</strong>
+      </div>
+      <button id="checkoutBtn" class="primary-btn full-btn" disabled>Checkout</button>
+    </div>
+  </aside>
+
+  <div id="checkoutModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="checkoutTitle">Checkout</h2>
+        <button id="closeModalBtn" class="icon-btn" aria-label="Close checkout">&times;</button>
+      </div>
+      <form id="checkoutForm">
+        <label for="customerName">Full Name</label>
+        <input id="customerName" type="text" required />
+
+        <label for="customerEmail">Email</label>
+        <input id="customerEmail" type="email" required />
+
+        <p class="modal-total">Total Amount: <strong id="modalTotalVal">$0.00</strong></p>
+        <button type="submit" class="primary-btn full-btn">Place Order</button>
+      </form>
+      <div id="orderConfirmation" class="order-confirmation hidden"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
