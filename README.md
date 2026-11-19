@@ -13,3 +13,7 @@ Folder: task-1-developer-portfolio/
 A full-stack weather application built using HTML, CSS, JavaScript and Node.js with Express.
 
 Folder: task-3-weather-app/
+
+### Task 4 - Commerce Product Catalog & Shopping Cart
+
+An e-commerce product catalog and shopping cart storefront with category filtering, search, tax/shipping calculation, and simulated checkout
